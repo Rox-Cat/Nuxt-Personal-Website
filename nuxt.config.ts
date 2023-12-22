@@ -1,0 +1,58 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+	devtools: { enabled: true },
+	modules: ['@nuxt/content', 'nuxt-icon', '@nuxtjs/color-mode', '@nuxt/image'],
+	vite: {
+		css: {
+			preprocessorOptions: {
+				less: {
+					javascriptEnabled: true,
+					additionalData: "@import '~/style/main.less';",
+				},
+			},
+		},
+	},
+	content: {
+		highlight: {
+			theme: 'one-dark-pro',
+			preload: [
+				'bash',
+				'c',
+				'csharp',
+				'c#',
+				'css',
+				'docker',
+				'go',
+				'groovy',
+				'html',
+				'java',
+				'javascript',
+				'js',
+				'jsx',
+				'json',
+				'julia',
+				'kotlin',
+				'markdown',
+				'lua',
+				'less',
+				'md',
+				'nginx',
+				'objc',
+				'python',
+				'py',
+				'ruby',
+				'rb',
+				'rust',
+				'rs',
+				'swift',
+				'sql',
+				'typescript',
+				'ts',
+				'tsx',
+				'vue',
+				'xml',
+				'yaml',
+			],
+		},
+	},
+})
