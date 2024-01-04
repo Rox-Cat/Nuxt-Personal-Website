@@ -62,6 +62,8 @@ let blogsList = ref<any>([])
 const page = ref(1)
 const pageSize = ref(2)
 const totalPage = ref(0)
+const route = useRoute()
+const queryTag = route.query.tag
 const curTag = ref('')
 const getBlog = async () => {
 	const { data } = await getBlogsByTagFetch(curTag.value, page.value, pageSize.value)
@@ -81,7 +83,9 @@ const showBlogsByTag = async (tagName: string) => {
 	// @ts-ignore
 	totalPage.value = Math.ceil(data.value.data.totalCount / pageSize.value)
 }
-
+if (queryTag) {
+	await showBlogsByTag(queryTag as string)
+}
 // 分页功能
 // 获取总页数
 

@@ -127,3 +127,10 @@ export const getBlogsCountByTagFetch = (tag: string) => {
 		},
 	})
 }
+
+// 获取所有博客数目
+export const getBlogsCountFetch = () => {
+	return useHttpFetch('api/blogs/blogs-count', {
+		method: "GET"
+	})
+}
