@@ -2,11 +2,11 @@
 	<div class="container">
 		<div class="content">
 			<div class="description">
-				<h1 class="title">所有博客</h1>
-				<p class="text">读读我写的博客吧，或许你会有不一样的收获。😁</p>
+				<h1 class="title">分类</h1>
+				<p class="text">通过分类找到你需要的博客</p>
 			</div>
 			<div class="logo">
-				<LogoDogpow />
+				<LogoDogs />
 			</div>
 		</div>
 	</div>

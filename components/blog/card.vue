@@ -1,9 +1,33 @@
+<script lang="ts" setup>
+interface Props {
+	path?: string
+	title?: string
+	date?: string
+	description?: string
+	image?: string
+	tags?: Array<string>
+}
+
+withDefaults(defineProps<Props>(), {
+	path: '/',
+	title: 'no-title',
+	date: 'no-date',
+	description: 'no-description',
+	image: '/nuxt-blog/no-image_cyyits.png',
+	alt: 'no-alt',
+	tags: () => [],
+})
+</script>
+
 <template>
 	<article class="article">
 		<NuxtLink :to="path" class="card">
+			<!-- 图片 -->
 			<div class="card-img">
 				<NuxtImg class="img" width="300px" :src="image" />
 			</div>
+
+			<!-- 内容 -->
 			<div class="content">
 				<h2 class="title">{{ title }}</h2>
 				<p class="description">
@@ -35,62 +59,27 @@
 		</NuxtLink>
 	</article>
 </template>
-
-<script lang="ts" setup>
-interface Props {
-	path?: string
-	title?: string
-	date?: string
-	description?: string
-	image?: string
-	tags?: Array<string>
-}
-
-withDefaults(defineProps<Props>(), {
-	path: '/',
-	title: 'no-title',
-	date: 'no-date',
-	description: 'no-description',
-	image: '/nuxt-blog/no-image_cyyits.png',
-	alt: 'no-alt',
-	tags: () => [],
-})
-</script>
-
 <style lang="less" scoped>
 .article {
 	border: 1px solid #d1d5db;
 	margin: 0.5rem;
-	border-radius: 1rem;
-	// ?
+	border-radius:1rem;
 	overflow: hidden;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
 	.card {
 		&:hover {
-			transform: scale(1.05);
+			transform: scale(1.02);
 			transition: all 0.5s;
 		}
-		transition: all 0.5s;
+		height: 100%;
 		display: grid;
+		grid-template-rows: 1fr 1fr;
 		gap: 0.25rem;
-		@media screen and (max-width: (@ipad - 1px)) {
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			grid-template-rows: 50% 50%;
-			height: 28rem;
-		}
-
-		@media (min-width: @ipad) {
-			grid-template-columns: repeat(10, minmax(0, 1fr));
-			height: 18.75rem;
-		}
 
 		.card-img {
 			overflow: hidden;
-			@media (min-width: @ipad) {
-				grid-column: span 3 / span 3;
-			}
-
+			max-height: 15rem;
 			.img {
 				width: 100%;
 				height: 100%;
@@ -105,22 +94,17 @@ withDefaults(defineProps<Props>(), {
 
 				@media (min-width: @ipad) {
 					border-top-left-radius: 1rem;
-					border-bottom-left-radius: 1rem;
-					border-top-left-radius: 0;
-					border-top-right-radius: 0;
+					border-top-right-radius: 1rem;
 				}
 			}
 		}
 
 		.content {
 			padding: 1.25rem;
-			@media (min-width: @ipad) {
-				grid-column: span 7 / span 7;
-			}
 			display: grid;
-
+			align-items: center;
 			.title {
-				.light-title-2;
+				.light-title-3;
 				text-align: center;
 				&:hover {
 					color: #0ea5e9;
@@ -133,7 +117,7 @@ withDefaults(defineProps<Props>(), {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				display: -webkit-box;
-				-webkit-line-clamp: 2;
+				-webkit-line-clamp: 3;
 				-webkit-box-orient: vertical;
 			}
 

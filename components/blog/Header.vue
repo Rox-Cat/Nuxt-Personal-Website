@@ -1,16 +1,13 @@
 <template>
 	<header>
-		<h1 class="title">
-			{{ title || '' }}
-		</h1>
+		<h1 class="title">{{ title }}</h1>
 	</header>
-	<NuxtImg class="img" :src="image || ''" :alt="alt || ''" width="600"> </NuxtImg>
-	<p class="description">{{ description }}</p>
+	<NuxtImg class="img" :src="coverImg" :alt="alt || ''" width="600"> </NuxtImg>
 	<div class="info">
 		<div class="tips">
 			<div class="date">
 				<LogoDate />
-				<p>{{ date || '' }}</p>
+				<p>{{ createdAt }}</p>
 			</div>
 			<div class="tags">
 				<LogoTag />
@@ -25,18 +22,16 @@
 <script setup lang="ts">
 interface Props {
 	title: string
-	image: string
+	coverImg: string
 	alt: string
-	description: string
-	date: string
+	createdAt: string
 	tags: Array<string>
 }
 
 withDefaults(defineProps<Props>(), {
 	title: 'no-title',
-	image: '#',
+	coverImg: '#',
 	alt: 'no-img',
-	description: 'no description',
 	date: 'no-date',
 	tags: () => [],
 })
@@ -60,7 +55,7 @@ withDefaults(defineProps<Props>(), {
 
 .img {
 	display: block;
-	margin:0 auto;
+	margin: 0 auto;
 	object-fit: cover;
 	align-content: center;
 	width: 66.7%;
@@ -76,21 +71,6 @@ withDefaults(defineProps<Props>(), {
 	}
 }
 
-.description {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0.75rem;
-	margin-bottom: 0.75rem;
-	font-size: 0.75rem;
-	line-height: 1rem;
-	text-align: center;
-	max-width: 36rem;
-
-	@media (min-width: 640px) {
-		font-size: 0.875rem;
-		line-height: 1.25rem;
-	}
-}
 
 .info {
 	display: flex;
@@ -98,7 +78,7 @@ withDefaults(defineProps<Props>(), {
 	justify-content: center;
 	font-size: 0.75rem;
 	line-height: 1rem;
-	
+
 	@media (min-width: 768px) {
 		font-size: 1rem;
 		line-height: 1.5rem;

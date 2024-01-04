@@ -1,6 +1,13 @@
 <template>
 	<main>
-		<MainHero />
+		<div class="aside-preson">
+			<MainPerson></MainPerson>
+		</div>
+		<div class="content">
+			<MainHero />
+			<MainRecent></MainRecent>
+			<MainHot></MainHot>
+		</div>
 	</main>
 </template>
 
@@ -8,7 +15,16 @@
 
 <style scoped lang="less">
 main {
-	max-width: 64rem;
-	margin:0 auto;
+	max-width: 100rem;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: minmax(0, 20rem) auto;
+	@media screen and (max-width: @ipad){
+		grid-template-columns: minmax(0, 1fr);
+	}
+	
+	.content {
+		padding: 0 1.25rem;
+	}
 }
 </style>

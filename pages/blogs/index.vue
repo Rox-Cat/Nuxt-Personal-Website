@@ -11,23 +11,20 @@
 		<!--  -->
 		<ClientOnly>
 			<div class="blog-cards">
-				<template v-for="post in paginatedData" :key="post.title">
+				<template v-for="post in blogsList" :key="post.id">
 					<ArchiveCard
-						:path="post.path"
+						:path="'/blogs/' + post.id"
 						:title="post.title"
-						:date="post.date"
+						:date="post.createdAt"
 						:description="post.description"
-						:image="post.image"
-						:alt="post.alt"
-						:og-image="post.ogImage"
+						:image="post.coverImg"
 						:tags="post.tags"
-						:published="post.published"
 					/>
 				</template>
 			</div>
 
 			<ArchiveCard
-				v-if="paginatedData.length <= 0"
+				v-if="blogsList.length <= 0"
 				title="No Post Found"
 				image="/not-found.jpg"
 			/>
@@ -36,65 +33,34 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData('home', () =>
-	queryContent('/blogs').sort({ _id: -1 }).find(),
-)
+import { getBlogsFetch } from '@/composables/useHttpFetch'
 
-const elementPerPgae = ref(4)
-const pageNumber = ref(1)
-const searchTest = ref('')
-
-const formatedData = computed(() => {
-	return (
-		data.value?.map((articles) => {
-			return {
-				description: articles.description || 'no-descriptoin available',
-				title: articles.title || 'no-title available',
-				path: articles._path,
-				image: articles.image || '/nuxt-blog/no-image_cyyits.png',
-				alt: articles.alt || 'no alter data available',
-				ogImage: articles.ogImage || '/nuxt-blog/no-image_cyyits.png',
-				date: articles.date || 'not-date-available',
-				tags: articles.tags || [],
-				published: articles.published || false,
-			}
-		}) || []
-	)
-})
-const searchData = computed(() => {
-	return (
-		formatedData.value.filter((data) => {
-			const lowerTitle = data.title.toLocaleLowerCase()
-			if (lowerTitle.search(searchTest.value) !== -1) return true
-			else return false
-		}) || []
-	)
-})
-const paginatedData = computed(() => {
-	return (
-		searchData.value.filter((data, idx) => {
-			const startInd = (pageNumber.value - 1) * elementPerPgae.value
-			const endInd = pageNumber.value * elementPerPgae.value - 1
-
-			if (idx >= startInd && idx <= endInd) return true
-			else return false
-		}) || []
-	)
-})
-
-function onPreviousPageClick() {
-	if (pageNumber.value > 1) pageNumber.value -= 1
+const page = ref(1)
+const pageSize = ref(5)
+let blogsList = ref<any>([])
+const { data } = await getBlogsFetch(page.value, pageSize.value)
+if (data.value === null) {
+	alert('No data found')
+} else {
+	// @ts-ignore
+	blogsList.value = data.value?.data.blogList || []
 }
 
-const totalPage = computed(() => {
-	const ttlContent = searchData.value.length || 0
-	const totalPage = Math.ceil(ttlContent / elementPerPgae.value)
-	return totalPage
-})
+// console.log(blogsList.value)
+/* 搜索功能一会再写 */
+// const searchTest = ref('')
 
-function onNextPageClick() {
-	if (pageNumber.value < totalPage.value) pageNumber.value += 1
-}
+
+// const searchData = computed(() => {
+// 	return (
+// 		blogsList.value.filter((data) => {
+// 			const lowerTitle = data.title.toLocaleLowerCase()
+// 			if (lowerTitle.search(searchTest.value) !== -1) return true
+// 			else return false
+// 		}) || []
+// 	)
+// })
+
 
 useHead({
 	title: 'Archive',

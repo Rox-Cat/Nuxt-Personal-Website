@@ -2,33 +2,39 @@
 	<div class="toc-container">
 		<div class="toc">
 			<h1>Table Of Content</h1>
-			<NuxtLink
-				v-for="link in links"
-				:key="link.id"
-				:to="`#${link.id}`"
-				class="subtitle"
-			>
-				{{ link.text }}
-			</NuxtLink>
+			<div class="content">
+				<template
+					v-for="(title, index) in catalogue"
+					:key="index"
+				>
+					<NuxtLink
+						v-if="title.level === 2 || title.level === 3"
+						:to="`#${title.text}`"
+						class="toc-link"
+						:class="title.level === 2 ? 'level2' : 'level3'"
+					>
+						{{ title.text }}
+					</NuxtLink>
+				</template>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-const { path } = useRoute()
-const articles = await queryContent(path).findOne()
-
-const links = articles?.body?.toc?.links || []
+const props = defineProps(['catalogue'])
+console.log(props.catalogue)
 </script>
 
 <style scoped lang="less">
 .toc-container {
-	display: none;
+	overflow: auto;
+	display: flex;
 	position: sticky;
 	top: 7rem;
 	justify-self: end;
-	height: 24rem;
-
+	height: 100vh - 10rem;
+	// background-color: @light-bg;
 	@media (min-width: 1024px) {
 		display: block;
 		grid-column: span 3 / span 3;
@@ -43,20 +49,29 @@ const links = articles?.body?.toc?.links || []
 		h1 {
 			padding-bottom: 0.5rem;
 			margin-bottom: 0.75rem;
-			font-size: 0.875rem;
+			font-size: 1.2rem;
 			line-height: 1.25rem;
 			font-weight: 700;
 			border-bottom-width: 1px;
 		}
 
-		.subtitle {
-			display: block;
-			margin-bottom: 0.75rem;
-			font-size: 0.75rem;
-			line-height: 1rem;
+		.content {
+			
+			border-left: 2px solid #e2e2e3;
+			.toc-link {
+				display: block;
+				padding: 0.25rem 1rem;
+				margin-bottom: 0.75rem;
+				font-size: 1rem;
+				line-height: 1rem;
+				text-decoration: none;
+				&:hover {
+					color: brown;
+				}
+			}
 
-			&:hover {
-				text-decoration-line: underline;
+			.level3 {
+				margin-left: 1.5rem;
 			}
 		}
 	}

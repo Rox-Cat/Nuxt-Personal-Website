@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const route = useRoute()
 
+const route = useRoute()
 const path = computed(() => route.fullPath.replace('/', ''))
 
 const colorMode = useColorMode()
@@ -17,15 +17,25 @@ function onClick(val: string) {
 			<!-- 网站标题 -->
 			<div class="title">
 				<NuxtLink to="/" :class="{ underline: path === '' }">
-					Rox7's Blog
+					🤪Rox7的博客😁
 				</NuxtLink>
 			</div>
 
 			<!-- 网站菜单 -->
 			<div class="menu">
 				<div>
+					<NuxtLink to="/write" :class="{ underline: path === 'write' }">
+						写作
+					</NuxtLink>
+				</div>				
+				<div>
 					<NuxtLink to="/blogs" :class="{ underline: path === 'blogs' }">
-						Blogs
+						博客
+					</NuxtLink>
+				</div>
+				<div>
+					<NuxtLink to="/docs" :class="{ underline: path === 'docs' }">
+						文档
 					</NuxtLink>
 				</div>
 				<div>
@@ -33,7 +43,7 @@ function onClick(val: string) {
 						to="/categories"
 						:class="{ underline: path === 'categories' }"
 					>
-						Categories
+						分类
 					</NuxtLink>
 				</div>
 				<div>
@@ -42,7 +52,15 @@ function onClick(val: string) {
 						aria-label="About me"
 						:class="{ underline: path === 'about' }"
 					>
-						About
+						关于我
+					</NuxtLink>
+				</div>
+				<div>
+					<NuxtLink
+						to="/data"
+						:class="{ underline: path === 'data' }"
+					>
+						数据
 					</NuxtLink>
 				</div>
 				<div>
@@ -51,20 +69,24 @@ function onClick(val: string) {
 							v-if="colorMode.value === 'light'"
 							@click="onClick('dark')"
 						>
-							<Icon name="icon-park:moon" size="20" />
+							<Icon name="icon-park:moon" size="22" />
 						</button>
 						<button
 							v-if="colorMode.value === 'dark'"
 							@click="onClick('light')"
 						>
-							<Icon name="noto:sun" size="20" />
+							<Icon name="noto:sun" size="22" />
 						</button>
 						<template #fallback>
 							<!-- this will be rendered on server side -->
-							<Icon name="svg-spinners:180-ring" size="20" />
+							<Icon name="svg-spinners:180-ring" size="22" />
 						</template>
 					</ClientOnly>
 				</div>
+			</div>
+
+			<div class="mobile-menu">
+				<Icon name="ep:operation" size="25" color="#ffffff"></Icon>
 			</div>
 		</div>
 	</div>
@@ -72,14 +94,13 @@ function onClick(val: string) {
 
 <style scoped lang="less">
 .navbar {
-	padding: 1.25rem 1.25rem;
-	border-bottom: 1px solid;
-	border-color: @light-title;
+	padding: 1.25rem 2.5rem;
 	font-weight: 600;
+	border-bottom: 1px solid @light-title;
 	background-color: @light-bg;
 	.container {
 		display: flex;
-		max-width: 64rem;
+		max-width: 100rem;
 		margin: 0 auto; // 水平居中
 
 		// flex布局设置
@@ -89,22 +110,33 @@ function onClick(val: string) {
 		.title {
 			font-weight: 700;
 			font-size: 1.5rem;
+			letter-spacing: 0.1rem;
+			color: @light-title;
+			min-width: 6.25rem;
 			@media (max-width: @ipad) {
 				font-size: 1rem;
 			}
 		}
 
 		.menu {
-			display: flex;
 			align-items: center;
 			gap: 0.75rem;
 			font-size: 0.875rem;
+			display: none;
 			@media (min-width: @ipad) {
 				gap: 1.5rem;
 				font-size: 1.125rem;
+				display: flex;
 			}
 		}
 
+		.mobile-menu {
+
+			display: block;
+			@media screen and (min-width: @ipad){
+				display: none;
+			}
+		}
 		.underline {
 			text-decoration: underline;
 		}
@@ -113,20 +145,26 @@ function onClick(val: string) {
 
 button {
 	border: none;
-	background-color: @light-bg;
+	transition: all 0.5s;
 	&:hover {
 		transform: scale(1.1);
-		transition: all 0.3s ease-out;
 		cursor: pointer;
 	}
 }
 // dark-mode不能放在里面
 .dark-mode {
+	
 	.navbar {
 		background-color: @dark-bg;
+		border-color: @dark-title;
 	}
 	button {
 		background-color: @dark-bg;
+		transition: all 0.5s;
+	}
+
+	.container .title{
+		color: @dark-title;
 	}
 }
 

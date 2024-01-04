@@ -2,10 +2,11 @@
 	<div class="hero">
 		<div class="content-grid">
 			<div class="introduction">
-				<h1 class="title">Welcome To My Blog Site</h1>
+				<h1 class="title">欢迎来到我的个人网站</h1>
 				<p class="text">
-					Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt,
-					Related Articles, Tips, Learning resources and more.
+					本网站主要记录我的前端学习笔记、整理的前端文档以及一些个人项目。
+					<br />
+					欢迎你的访问，欢迎你在评论区留言。
 				</p>
 			</div>
 			<div class="logo">
@@ -45,6 +46,9 @@
 				margin: 1.25rem 0;
 			}
 
+			.text {
+				font-size: 1.25rem;
+			}
 			// 暗黑模式所有的子元素的字体修改
 		}
 
