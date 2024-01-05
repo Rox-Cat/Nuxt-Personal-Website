@@ -4,7 +4,8 @@
  */
 
 
-import OSS from 'ali-oss'
+// import OSS from 'ali-oss'
+import OSS from "ali-oss"
 import { responseJson } from '../../utils/helper'
 
 

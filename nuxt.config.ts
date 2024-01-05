@@ -1,7 +1,7 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-	devtools: { enabled: true },
 
+export default defineNuxtConfig({
+
+	devtools: { enabled: true },
 	app: {
 		head: {
 			htmlAttrs: {
@@ -23,20 +23,14 @@ export default defineNuxtConfig({
 		layoutTransition: { name: 'layout', mode: 'out-in' },
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
-	runtimeConfig: {
-		isServer: 'True',
-		accessKeyId: process.env.SECRET_ID,
-		accessKeySecret: process.env.SECRET_KEY,
-		bucket: process.env.BUCKET,
-		region: process.env.REGION,
-	},
-	modules: [
-		'@nuxt/content',
-		'nuxt-icon',
-		'@nuxtjs/color-mode',
-		'@nuxt/image',
-		'@element-plus/nuxt',
-	],
+	// runtimeConfig: {
+	// 	isServer: 'True',
+	// 	accessKeyId: process.env.SECRET_ID,
+	// 	accessKeySecret: process.env.SECRET_KEY,
+	// 	bucket: process.env.BUCKET,
+	// 	region: process.env.REGION,
+	// },
+	modules: ['nuxt-icon', '@nuxtjs/color-mode', '@nuxt/image', '@element-plus/nuxt'],
 	vite: {
 		css: {
 			preprocessorOptions: {
@@ -46,5 +40,8 @@ export default defineNuxtConfig({
 				},
 			},
 		},
+		// optimizeDeps: {
+		// 	exclude: ['mysql2'],
+		// },
 	},
 })
