@@ -12,12 +12,7 @@
 			</div>
 		</div>
 		<div class="md-editor">
-			<MdEditor
-				v-model="article.content"
-				:theme="theme"
-				@onSave="saveMd"
-				editorId="write"
-			/>
+			<MdEditor v-model="article.content" :theme="theme" editorId="write" />
 		</div>
 		<div class="dialog" v-if="openDialog">
 			<!-- 发布文章 -->
@@ -65,6 +60,8 @@
 					cols="50"
 					class="dialog-input"
 					placeholder="请输入描述..."
+					v-model="article.description"
+					maxlength="100"
 				></textarea>
 			</div>
 			<!-- 按钮 -->
@@ -116,7 +113,7 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
 	if (rawFile.type !== 'image/jpeg' && rawFile.type !== 'image/png') {
 		ElMessage.error('Avatar picture must be JPG or png format!')
 		return false
-	} else if (rawFile.size / 1024 / 1024 > 2) {
+	} else if (rawFile.size / 1024 / 1024 > 5) {
 		ElMessage.error('Avatar picture size can not exceed 2MB!')
 		return false
 	}
@@ -137,26 +134,9 @@ const uploadBlog = async () => {
 	}
 	openDialog.value = false
 }
-
-const saveMd = async (mdString, _) => {
-	console.log(1)
-	const title = mdString.match(/^#.*$/m)[0].slice(2)
-	const content = mdString.replace(title, '').trim()
-	const { data } = await uploadBlogFetch({
-		title,
-		content,
-		coverImg: 'https://wx2.sinaimg.cn/orj360/007QvzfIly1hk8iue1yazj30pk0y51kx.jpg',
-	})
-	alert(data.value.msg)
-}
 </script>
 
 <style scoped lang="less">
-.dark-mode {
-	.dialog {
-		background-color: @dark-bg !important;
-	}
-}
 
 .container {
 	max-width: 100rem;
@@ -178,7 +158,7 @@ const saveMd = async (mdString, _) => {
 			letter-spacing: 2px;
 			line-height: 2rem;
 			background: none;
-			color: @light-title;
+			color: @title-color;
 
 			&::placeholder {
 				color: rgb(134, 144, 156);
@@ -282,14 +262,6 @@ const saveMd = async (mdString, _) => {
 				font-size: 1.25rem;
 				cursor: pointer;
 			}
-		}
-	}
-}
-.dark-mode {
-	.container .title {
-		color: @dark-title;
-		&::placeholder {
-			color: #b7b7bc;
 		}
 	}
 }

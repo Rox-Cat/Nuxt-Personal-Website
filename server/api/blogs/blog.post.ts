@@ -10,22 +10,23 @@
 */
 import db from '../../utils/db/index'
 import { responseJson } from '../../utils/helper'
-import type { ResultSetHeader, RowDataPacket } from 'mysql2'
+import type { ResultSetHeader } from 'mysql2'
 export default defineEventHandler(async (event) => {
 	// 获取请求数据
 	const body = await readBody(event)
-	const { title, coverImg, content, tags } = body
+	const { title, coverImg, content, tags, description } = body
 	console.log(tags)
 	try {
 		let blogId
 
 		// 插入博客数据
 		const insertBlogSql =
-			'INSERT INTO blogs (title, coverImg, content) VALUES (?, ?, ?)'
+			'INSERT INTO blogs (title, coverImg, content, description) VALUES (?, ?, ?, ?)'
 		const [blogInsertResult] = await db.query<ResultSetHeader>(insertBlogSql, [
 			title,
 			coverImg,
 			content,
+			description,
 		])
 
 		if (blogInsertResult.affectedRows === 1) {

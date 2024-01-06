@@ -17,9 +17,6 @@
 </template>
 
 <style lang="less" scoped>
-.dark-mode .title {
-	color: @dark-title !important;
-}
 .hero {
 	max-width: 100%; // 子元素不会超出父元素，响应式布局
 	margin: 0 auto;
@@ -36,7 +33,7 @@
 			padding: 0 1.5rem;
 
 			.title {
-				color: @light-title;
+				color: @title-color;
 				font-weight: 600;
 				line-height: 1.2;
 				font-size: 2.25rem;

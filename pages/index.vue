@@ -19,7 +19,7 @@ main {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: minmax(0, 20rem) auto;
-	@media screen and (max-width: @ipad){
+	@media screen and (@max-ipad) {
 		grid-template-columns: minmax(0, 1fr);
 	}
 	

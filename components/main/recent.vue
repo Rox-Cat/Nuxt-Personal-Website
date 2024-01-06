@@ -59,7 +59,7 @@ useHead({
 
 		h1 {
 			padding-left: 1rem;
-			color: #000000;
+			color: @title-color;
 			font-size: 2.25rem;
 			line-height: 2.5rem;
 			font-weight: 600;
@@ -74,14 +74,8 @@ useHead({
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		@media (min-width: 1024px) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 		}
-	}
-}
-
-.dark-mode {
-	.container .title h1{
-		color: @dark-title;
 	}
 }
 </style>

@@ -53,7 +53,12 @@
 			</div>
 
 			<div class="category-list">
-				<NuxtLink :to="`/categories?tag=${tagName}`" class="category-item" v-for="tagName of tagsName" :key="tagName">
+				<NuxtLink
+					:to="`/categories?tag=${tagName}`"
+					class="category-item"
+					v-for="tagName of tagsName"
+					:key="tagName"
+				>
 					{{ tagName }}
 				</NuxtLink>
 			</div>
@@ -79,7 +84,6 @@ const { data: tagsDate } = await getTagsFetch()
 tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 
 // 3. 获取分类数目 -> 暂时先不写
-
 </script>
 
 <style scoped lang="less">
@@ -102,7 +106,7 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 
 		.nickname {
 			font-size: 2.5rem;
-			color: @light-title;
+			color: @title-color;
 			font-weight: 600;
 			margin: 1.25rem 0;
 		}
@@ -119,7 +123,7 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 				flex-direction: column;
 				align-items: center;
 				font-size: 1.25rem;
-				color: @light-title;
+				color: @title-color;
 			}
 		}
 
@@ -146,7 +150,7 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 		.title {
 			text-align: center;
 			font-size: 1.5rem;
-			color: @light-title;
+			color: @title-color;
 			font-weight: 600;
 		}
 

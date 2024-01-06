@@ -3,10 +3,7 @@
 		<div class="toc">
 			<h1>Table Of Content</h1>
 			<div class="content">
-				<template
-					v-for="(title, index) in catalogue"
-					:key="index"
-				>
+				<template v-for="(title, index) in catalogue" :key="index">
 					<NuxtLink
 						v-if="title.level === 2 || title.level === 3"
 						:to="`#${title.text}`"
@@ -34,7 +31,7 @@ console.log(props.catalogue)
 	top: 7rem;
 	justify-self: end;
 	height: 100vh - 10rem;
-	// background-color: @light-bg;
+	// background-color: @bg-color;
 	@media (min-width: 1024px) {
 		display: block;
 		grid-column: span 3 / span 3;
@@ -56,7 +53,6 @@ console.log(props.catalogue)
 		}
 
 		.content {
-			
 			border-left: 2px solid #e2e2e3;
 			.toc-link {
 				display: block;

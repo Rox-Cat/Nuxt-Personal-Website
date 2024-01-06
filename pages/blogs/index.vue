@@ -50,7 +50,6 @@ if (data.value === null) {
 /* 搜索功能一会再写 */
 // const searchTest = ref('')
 
-
 // const searchData = computed(() => {
 // 	return (
 // 		blogsList.value.filter((data) => {
@@ -60,7 +59,6 @@ if (data.value === null) {
 // 		}) || []
 // 	)
 // })
-
 
 useHead({
 	title: 'Archive',
@@ -78,10 +76,7 @@ useHead({
 </script>
 
 <style lang="less" scoped>
-.dark-mode input {
-	border-color: @light-title;
-	background-color: @dark-bg;
-}
+
 .container {
 	width: 100%;
 	margin: 0 auto;
@@ -95,7 +90,7 @@ useHead({
 			box-sizing: border-box;
 			display: block;
 			width: 100%;
-			background-color: @light-bg;
+			background-color: @bg-color;
 			color: #9ca3af;
 			border-radius: 0.375rem;
 			border-width: 1px;

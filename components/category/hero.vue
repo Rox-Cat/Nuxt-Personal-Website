@@ -32,7 +32,7 @@
 	padding: 0 1.5rem;
 
 	.title {
-		color: @light-title;
+		color: @title-color;
 		font-weight: 600;
 		line-height: 1.2;
 		font-size: 2.25rem;
@@ -53,7 +53,5 @@
 	height: 25rem;
 }
 
-.dark-mode .title {
-	color: #d1d5db;
-}
+
 </style>

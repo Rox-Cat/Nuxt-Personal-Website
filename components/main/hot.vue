@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="title">
-			<Icon name="noto:hot-pepper" size="2.5rem"/>
+			<Icon name="noto:hot-pepper" size="2.5rem" />
 			<h1>热门博客</h1>
 		</div>
 
@@ -43,7 +43,7 @@ useHead({
 				'Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
 		},
 	],
-	titleTemplate: "Rox7的博客 - %s",
+	titleTemplate: 'Rox7的博客 - %s',
 })
 </script>
 
@@ -72,9 +72,4 @@ useHead({
 	}
 }
 
-.dark-mode {
-	.container .title h1{
-		color: @dark-title;
-	}
-}
 </style>

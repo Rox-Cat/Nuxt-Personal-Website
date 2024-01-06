@@ -120,7 +120,6 @@ withDefaults(defineProps<Props>(), {
 			display: grid;
 
 			.title {
-				.light-title-2;
 				text-align: center;
 				&:hover {
 					color: #0ea5e9;
@@ -128,7 +127,6 @@ withDefaults(defineProps<Props>(), {
 			}
 
 			.description {
-				.light-text-1;
 				margin: 1rem 0;
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -171,15 +169,7 @@ withDefaults(defineProps<Props>(), {
 	}
 }
 
-.dark-mode {
-	.title {
-		.dark-title-2 !important;
-	}
 
-	.description {
-		.dark-text-1 !important;
-	}
-}
 
 a {
 	text-decoration: none;

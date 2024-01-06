@@ -154,7 +154,7 @@ const getPostPageBlogs = async () => {
 				pointer-events: none;
 			}
 			svg {
-				background-color: @light-bg;
+				background-color: @bg-color;
 				color: powderblue;
 			}
 		}
@@ -167,6 +167,7 @@ const getPostPageBlogs = async () => {
 .dark-mode {
 	.show-category {
 		background-color: cornsilk;
+		color: #000;
 	}
 }
 </style>

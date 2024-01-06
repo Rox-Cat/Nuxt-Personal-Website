@@ -31,13 +31,7 @@ withDefaults(defineProps<Props>(), {
 			<div class="content">
 				<h2 class="title">{{ title }}</h2>
 				<p class="description">
-					这个是一个CSS属性，用来定义网格布局中的列的数量和大小。1
-					这个属性的值是一个空格分隔的列表，每个值表示一个列的大小。1
-					这个属性的值中，有一个函数repeat()，它可以让你重复一个或多个值，而不用写很多次。1
-					这个属性的值中，有一个函数minmax()，它可以让你设置一个列的最小和最大大小。1
-					这个属性的值中，有一个单位fr，它表示可用空间的剩余部分的比例。1
-					所以，这个属性的值repeat(1, minmax(0, 1fr))的意思是：
-					{{ description }}
+					{{ description || "no-description"}}
 				</p>
 				<div class="info">
 					<div class="date">
@@ -112,7 +106,6 @@ withDefaults(defineProps<Props>(), {
 			}
 
 			.description {
-				.light-text-1;
 				margin: 1rem 0;
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -155,15 +148,6 @@ withDefaults(defineProps<Props>(), {
 	}
 }
 
-.dark-mode {
-	.title {
-		.dark-title-2 !important;
-	}
-
-	.description {
-		.dark-text-1 !important;
-	}
-}
 
 a {
 	text-decoration: none;

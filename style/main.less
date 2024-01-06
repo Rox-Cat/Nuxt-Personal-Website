@@ -1,17 +1,38 @@
-/* 颜色 */
-// light模式
-@light-title: #000000; // 题目字体 @gray-800
-@light-text: #3f3f46; // 正文字体  zinc-700
-@light-bg: #fff; // 背景 手写的
+/* 清除样式 */
+* {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+}
+body {
+	background-color: @bg-color;
+	color: @text-color;
+	transition: all 0.5s;
+}
 
-// dark模式
-@dark-text: #d4d4d8; // 字体 @zinc-300
-@dark-title: #d4d4d8; // 标题 @zinc-300
-@dark-bg: #020617; // 背景 @slate-950
+/* CSS的变量 */
+:root.light-mode {
+	--title--color: #000000; // 题目字体 @gray-800
+	--text--color: #3f3f46; // 正文字体  zinc-700
+	--bg--color: #fff; // 背景 手写的
+}
+
+:root.dark-mode {
+	--title--color: #d4d4d8; // 题目字体 @zinc-300
+	--text--color: #d4d4d8; // 正文字体  zinc-300
+	--bg--color: #020617; // 背景 @slate-950
+}
+
+/* 颜色 */
+@title-color: var(--title--color);
+@text-color: var(--text--color);
+@bg-color: var(--bg--color);
+
 
 /* 屏幕尺寸 */
 @ipad: 768px;
-@iphone: 375px;  // 暂时没用到
+@iphone: 375px; // 暂时没用到
+@max-ipad: ~"(max-width: 768px)";
 
 /* 大屏模式 */
 @big-title-1-size: 3rem;
@@ -20,38 +41,37 @@
 
 /* 小屏模式 */
 
-
 .light-title-1 {
-	color: @light-title;
+	color: @title-color;
 	font-size: 3rem;
 	font-weight: 600;
 }
 
 .light-title-2 {
-	color: @light-title;
+	color: @title-color;
 	font-size: 2rem;
 	font-weight: 600;
 }
 
 .light-title-3 {
-	color: @light-title;
+	color: @title-color;
 	font-size: 1.25rem;
 	font-weight: 600;
 }
 
 .dark-title-1 {
-	color: @dark-title;
+	color: @title-color;
 	font-size: 3rem;
 }
 
 .dark-title-2 {
-	color: @dark-title;
+	color: @title-color;
 	font-size: 2rem;
 	font-weight: 600;
 }
 
 .dark-title-3 {
-	color: @dark-title;
+	color: @title-color;
 	font-size: 1.25rem;
 	font-weight: 600;
 }
@@ -62,16 +82,8 @@
 }
 
 .dark-text-1 {
-	color: @dark-text;
+	color: @text-color;
 	font-size: 1rem;
 }
 
-.light-variable {
-    --color: red;
-    --background-color: red;
-}
 
-.dark-variable {
-    --color: #fff;
-    --background-color: #000;
-}

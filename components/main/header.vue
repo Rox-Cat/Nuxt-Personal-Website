@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const route = useRoute()
 const path = computed(() => route.fullPath.replace('/', ''))
 
@@ -27,7 +26,7 @@ function onClick(val: string) {
 					<NuxtLink to="/write" :class="{ underline: path === 'write' }">
 						写作
 					</NuxtLink>
-				</div>				
+				</div>
 				<div>
 					<NuxtLink to="/blogs" :class="{ underline: path === 'blogs' }">
 						博客
@@ -56,10 +55,7 @@ function onClick(val: string) {
 					</NuxtLink>
 				</div>
 				<div>
-					<NuxtLink
-						to="/data"
-						:class="{ underline: path === 'data' }"
-					>
+					<NuxtLink to="/data" :class="{ underline: path === 'data' }">
 						数据
 					</NuxtLink>
 				</div>
@@ -96,8 +92,8 @@ function onClick(val: string) {
 .navbar {
 	padding: 1.25rem 2.5rem;
 	font-weight: 600;
-	border-bottom: 1px solid @light-title;
-	background-color: @light-bg;
+	border-bottom: 1px solid @title-color;
+	background-color: @bg-color;
 	.container {
 		display: flex;
 		max-width: 100rem;
@@ -111,7 +107,7 @@ function onClick(val: string) {
 			font-weight: 700;
 			font-size: 1.5rem;
 			letter-spacing: 0.1rem;
-			color: @light-title;
+			color: @title-color;
 			min-width: 6.25rem;
 			@media (max-width: @ipad) {
 				font-size: 1rem;
@@ -131,9 +127,8 @@ function onClick(val: string) {
 		}
 
 		.mobile-menu {
-
 			display: block;
-			@media screen and (min-width: @ipad){
+			@media screen and (min-width: @ipad) {
 				display: none;
 			}
 		}
@@ -152,21 +147,7 @@ button {
 	}
 }
 // dark-mode不能放在里面
-.dark-mode {
-	
-	.navbar {
-		background-color: @dark-bg;
-		border-color: @dark-title;
-	}
-	button {
-		background-color: @dark-bg;
-		transition: all 0.5s;
-	}
 
-	.container .title{
-		color: @dark-title;
-	}
-}
 
 a {
 	text-decoration: none;

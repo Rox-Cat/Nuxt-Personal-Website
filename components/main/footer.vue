@@ -51,10 +51,6 @@ const path = computed(() => route.fullPath.replace('/', ''))
 		text-decoration: underline;
 	}
 }
-.dark-mode .footer {
-	color: @dark-text;
-	border-color: @light-title;
-}
 /* 没搞懂 */
 .v-enter-active,
 .v-leave-active {

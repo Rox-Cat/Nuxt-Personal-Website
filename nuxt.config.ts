@@ -1,6 +1,4 @@
-
 export default defineNuxtConfig({
-
 	devtools: { enabled: true },
 	app: {
 		head: {
@@ -23,13 +21,13 @@ export default defineNuxtConfig({
 		layoutTransition: { name: 'layout', mode: 'out-in' },
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
-	// runtimeConfig: {
-	// 	isServer: 'True',
-	// 	accessKeyId: process.env.SECRET_ID,
-	// 	accessKeySecret: process.env.SECRET_KEY,
-	// 	bucket: process.env.BUCKET,
-	// 	region: process.env.REGION,
-	// },
+	runtimeConfig: {
+		isServer: 'True',
+		accessKeyId: process.env.SECRET_ID,
+		accessKeySecret: process.env.SECRET_KEY,
+		bucket: process.env.BUCKET,
+		region: process.env.REGION,
+	},
 	modules: ['nuxt-icon', '@nuxtjs/color-mode', '@nuxt/image', '@element-plus/nuxt'],
 	vite: {
 		css: {
@@ -40,8 +38,5 @@ export default defineNuxtConfig({
 				},
 			},
 		},
-		// optimizeDeps: {
-		// 	exclude: ['mysql2'],
-		// },
 	},
 })

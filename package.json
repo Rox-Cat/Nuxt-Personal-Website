@@ -11,6 +11,7 @@
 	},
 	"devDependencies": {
 		"@element-plus/nuxt": "^1.0.7",
+		"ali-oss": "^6.0.0",
 		"element-plus": "^2.4.4",
 		"eslint": "^8.56.0",
 		"less": "^4.2.0",

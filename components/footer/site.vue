@@ -13,7 +13,7 @@
 	font-size: 1rem;
 	padding: 0.25rem 0;
 	font-weight: 600;
-	color: @light-title;
+	color: @title-color;
 }
 
 .description {
@@ -21,7 +21,4 @@
 	padding-bottom: 0.5rem;
 }
 
-.dark-mode .title {
-	color: @dark-title;
-}
 </style>
