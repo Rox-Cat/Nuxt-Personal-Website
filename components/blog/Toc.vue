@@ -1,7 +1,7 @@
 <template>
 	<div class="toc-container">
 		<div class="toc">
-			<h1>Table Of Content</h1>
+			<h1>文章目录</h1>
 			<div class="content">
 				<template v-for="(title, index) in catalogue" :key="index">
 					<NuxtLink
@@ -20,28 +20,19 @@
 
 <script setup lang="ts">
 const props = defineProps(['catalogue'])
-console.log(props.catalogue)
 </script>
 
 <style scoped lang="less">
 .toc-container {
-	overflow: auto;
 	display: flex;
-	position: sticky;
-	top: 7rem;
+	overflow-y: auto;
 	justify-self: end;
 	height: 100vh - 10rem;
-	// background-color: @bg-color;
-	@media (min-width: 1024px) {
-		display: block;
-		grid-column: span 3 / span 3;
-	}
-
 	.toc {
 		padding: 0.75rem;
 		border-radius: 0.375rem;
 		border-width: 1px;
-		min-width: 200px;
+		// min-width: 200px;
 
 		h1 {
 			padding-bottom: 0.5rem;

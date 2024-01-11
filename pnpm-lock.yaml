@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.4.5
     version: 3.4.5(vue@3.4.5)
   md-editor-v3:
-    specifier: ^4.9.0
-    version: 4.9.0(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(vue@3.4.5)
+    specifier: ^4.10.0
+    version: 4.10.0(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(vue@3.4.5)
   mysql2:
     specifier: ^3.6.5
     version: 3.6.5
@@ -5213,8 +5213,8 @@ packages:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
     dev: false
 
-  /md-editor-v3@4.9.0(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(vue@3.4.5):
-    resolution: {integrity: sha512-c5Woj8FGDO/odWnAn/ZNOYGlMKoSrXmLqDedxfX7ictaN5ixQCv2brUeAXVzi3fHP91xzxTqFqqJvnnJO+fYfw==}
+  /md-editor-v3@4.10.0(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(vue@3.4.5):
+    resolution: {integrity: sha512-Sz9tAd6RZbc4l7Ys//GvGFX9mklk8bmQwfjbpbgMNX/4U8DkTeXpQlO8oSNzRGWE9QgZjt4ZTdxjljAIbYLdgQ==}
     peerDependencies:
       vue: ^3.2.47
     dependencies:

@@ -16,6 +16,11 @@ export default defineEventHandler(async (event) => {
 		if (result.length === 0) {
 			return responseJson(404, '博客列表为空')
 		} else {
+			const getTagsql = 'SELECT tagName FROM blogs_tags WHERE blogID = ?'
+			for (let item of result) {
+				const [tagResults] = await db.query<RowDataPacket[]>(getTagsql, [item.id])
+				item.tags = tagResults.map((item) => item.tagName)
+			}
 			return responseJson(200, '获取热门博客成功', {
                 blogList: result
             })

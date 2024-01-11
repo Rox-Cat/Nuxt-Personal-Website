@@ -17,7 +17,6 @@ withDefaults(defineProps<Props>(), {
 	alt: 'no-alt',
 	tags: () => [],
 })
-
 </script>
 
 <template>
@@ -39,12 +38,6 @@ withDefaults(defineProps<Props>(), {
 						<LogoDate />
 						<p>{{ new Date(date).toLocaleString() }}</p>
 					</div>
-					<div class="tags">
-						<LogoTag />
-						<p v-for="tag in tags" :key="tag">
-							{{ tag }}
-						</p>
-					</div>
 				</div>
 				<div class="more">
 					<p>Read More</p>
@@ -61,7 +54,7 @@ withDefaults(defineProps<Props>(), {
 	border-radius: 1rem;
 	overflow: hidden;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-
+	height: 15rem;
 	.card {
 		transition: all 0.5s;
 		&:hover {
@@ -70,7 +63,7 @@ withDefaults(defineProps<Props>(), {
 		}
 		height: 100%;
 		display: grid;
-		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		gap: 0.25rem;
 
 		.card-img {
@@ -82,16 +75,9 @@ withDefaults(defineProps<Props>(), {
 				object-fit: cover;
 				max-width: 100%;
 				object-position: center;
-				border-top-left-radius: 1rem;
-				border-top-right-radius: 1rem;
 				box-shadow:
 					0 10px 15px -3px rgba(0, 0, 0, 0.1),
 					0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-				@media (min-width: @ipad) {
-					border-top-left-radius: 1rem;
-					border-top-right-radius: 1rem;
-				}
 			}
 		}
 
@@ -127,13 +113,6 @@ withDefaults(defineProps<Props>(), {
 				.date {
 					display: flex;
 					align-items: center;
-				}
-
-				.tags {
-					display: flex;
-					align-items: center;
-					gap: 0.25rem;
-					flex-wrap: wrap;
 				}
 			}
 

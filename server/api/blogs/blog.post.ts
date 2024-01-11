@@ -42,7 +42,6 @@ export default defineEventHandler(async (event) => {
 						blogId,
 						tagName,
 					])
-					console.log(result)
 					if (result.affectedRows !== 1) {
 						return responseJson(400, '上传博客失败')
 					}

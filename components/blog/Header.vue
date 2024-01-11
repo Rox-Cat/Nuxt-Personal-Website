@@ -123,9 +123,4 @@ withDefaults(defineProps<Props>(), {
 		}
 	}
 }
-// .dark {
-//     .title {
-
-//     }
-// }
 </style>

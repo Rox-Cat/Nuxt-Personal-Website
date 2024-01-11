@@ -14,7 +14,7 @@
 				<MdPreview
 					:modelValue="blogDate.content"
 					:editorId="editorId"
-					preview-theme="rox7"
+					preview-theme="vuepress"
 					@onGetCatalog="onGetCatelog"
 				/>
 			</div>
@@ -32,12 +32,11 @@
 import { getBlogFetch } from '@/composables/useHttpFetch'
 import type { BlogData } from '@/types/blog'
 import { MdPreview } from 'md-editor-v3'
-import 'md-editor-v3/lib/preview.css';
+import 'md-editor-v3/lib/style.css';
 import '@/style/rox7.css'
 /* markdown主题 */
 const colorMode = useColorMode()
 const theme = computed(() => {
-	console.log(colorMode.value)
 	if (colorMode.value === 'system') {
 		return "github"
 	}
@@ -75,42 +74,29 @@ const onGetCatelog = (catalog: []) => {
 </script>
 
 <style scoped lang="less">
-.container {
-	
+.container {	
 	// 设置宽度，水平居中，边距
 	width: 100%;
 	padding: 0 1.5rem;
 	margin: 0 auto;
+	box-sizing: border-box;
 	max-width: 80rem;
+	display: flex;
 
-	// 如果宽度大于640px，使用网格布局
-	@media (min-width: 640px) {
-		display: grid;
-		grid-template-columns: repeat(12, minmax(0, 1fr));
-		column-gap: 3rem;
-	}
 	.blog-body {
-		grid-column: span 12 / span 12;
-
-		@media (min-width: 1024px) {
-			grid-column: span 10 / span 10;
-		}
-
-		.blog-content {
-			max-width: 64rem;
-			margin-left: auto;
-			margin-right: auto;
-		}
+		width: 100%;
+		max-width: 64rem;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.blog-toc {
-		display: none;
+		height: 100vh - 10rem;
 		position: sticky;
 		top: 7rem;
-		justify-self: end;
-		@media (min-width: 1024px) {
-			display: block;
-			grid-column: span 2 / span 2;
+		padding-left: 2rem;
+		@media (max-width: 1024px) {
+			display: none;
 		}
 	}
 }

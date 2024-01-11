@@ -16,7 +16,7 @@ function onClick(val: string) {
 			<!-- 网站标题 -->
 			<div class="title">
 				<NuxtLink to="/" :class="{ underline: path === '' }">
-					🤪Rox7的博客😁
+					Rox7的博客😁
 				</NuxtLink>
 			</div>
 
@@ -33,7 +33,7 @@ function onClick(val: string) {
 					</NuxtLink>
 				</div>
 				<div>
-					<NuxtLink to="/docs" :class="{ underline: path === 'docs' }">
+					<NuxtLink to="/books" :class="{ underline: path === 'books' }">
 						文档
 					</NuxtLink>
 				</div>
@@ -133,7 +133,9 @@ function onClick(val: string) {
 			}
 		}
 		.underline {
+			text-underline-offset: 5px; /* 调整下划线与文字之间的距离 */
 			text-decoration: underline;
+			text-decoration-thickness: 3px; /* 调整下划线粗细 */
 		}
 	}
 }
@@ -141,6 +143,7 @@ function onClick(val: string) {
 button {
 	border: none;
 	transition: all 0.5s;
+	background-color: @bg-color;
 	&:hover {
 		transform: scale(1.1);
 		cursor: pointer;

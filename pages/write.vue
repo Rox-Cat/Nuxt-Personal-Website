@@ -75,7 +75,7 @@
 
 <script setup lang="ts">
 import { MdEditor } from 'md-editor-v3'
-import '@/style/rox7.css'
+// import '@/style/rox7.css'
 import { uploadBlogFetch, getTagsFetch } from '@/composables/useHttpFetch'
 import type { UploadProps } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
@@ -141,7 +141,6 @@ const uploadBlog = async () => {
 .container {
 	max-width: 100rem;
 	margin: 0 auto;
-
 	.info {
 		display: flex;
 		align-items: center;

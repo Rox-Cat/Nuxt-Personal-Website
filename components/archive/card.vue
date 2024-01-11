@@ -18,7 +18,7 @@
 				<div class="info">
 					<div class="date">
 						<LogoDate />
-						<p>{{ date }}</p>
+						<p>{{ new Date(date).toLocaleString() }}</p>
 					</div>
 					<div class="tags">
 						<LogoTag />
@@ -67,17 +67,18 @@ withDefaults(defineProps<Props>(), {
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
 	.card {
+		transition: all 0.5s;
 		&:hover {
 			transform: scale(1.05);
 			transition: all 0.5s;
 		}
-		transition: all 0.5s;
+		
 		display: grid;
 		gap: 0.25rem;
 		@media screen and (max-width: (@ipad - 1px)) {
 			grid-template-columns: repeat(1, minmax(0, 1fr));
 			grid-template-rows: 50% 50%;
-			height: 28rem;
+			height: 20rem;
 		}
 
 		@media (min-width: @ipad) {

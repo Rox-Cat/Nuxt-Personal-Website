@@ -28,7 +28,7 @@
 
 			<div class="media">
 				<a href="https://github.com/Rox-Cat">
-					<Icon name="devicon:github" size="30" />
+					<Icon name="mdi:github" size="30" id="github" />
 				</a>
 				<a href="https://juejin.cn/user/1251702307034688">
 					<Icon name="simple-icons:juejin" size="30" color="#1e80ff" />
@@ -91,14 +91,18 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 	min-width: 15rem;
 	padding: 1.25rem;
 	height: 100%;
+
+
 	.person {
 		padding: 1.25rem 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		color: @title-color;
+		border: 1px solid @title-color;
 		border-radius: 0.7rem;
 		background-size: 200% 300%; // ?
-		background: linear-gradient(-45deg, #e8d8b9, #eccec5, #a3e9eb, #bdbdf0, #eec1ea);
+
 
 		.avatar img {
 			border-radius: 50%;
@@ -106,7 +110,6 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 
 		.nickname {
 			font-size: 2.5rem;
-			color: @title-color;
 			font-weight: 600;
 			margin: 1.25rem 0;
 		}
@@ -123,7 +126,6 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 				flex-direction: column;
 				align-items: center;
 				font-size: 1.25rem;
-				color: @title-color;
 			}
 		}
 
@@ -139,6 +141,10 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 					transform: scale(1.1);
 				}
 			}
+
+			#github {
+				color: @title-color;
+			}
 		}
 	}
 
@@ -146,11 +152,11 @@ tagsName.value = tagsDate.value.data.map((item) => item.tagName)
 		border-radius: 10px;
 		margin: 2.5rem 0;
 		padding: 1.25rem 1rem;
-		background: linear-gradient(-45deg, #e8d8b9, #eccec5, #a3e9eb, #bdbdf0, #eec1ea);
+		border: 1px solid @title-color;
+		color: @title-color;
 		.title {
 			text-align: center;
 			font-size: 1.5rem;
-			color: @title-color;
 			font-weight: 600;
 		}
 

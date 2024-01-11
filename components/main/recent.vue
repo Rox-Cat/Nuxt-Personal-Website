@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="title">
-			<Icon name="carbon:recently-viewed" size="2.5rem" color="#00000" />
+			<Icon name="noto:alarm-clock" size="2.5rem" />
 			<h1>最近博客</h1>
 		</div>
 
@@ -22,7 +22,6 @@
 
 <script setup lang="ts">
 import { getBlogsFetch } from '@/composables/useHttpFetch'
-
 const page = ref(1)
 const pageSize = ref(6)
 let blogsList = ref<any>([])
@@ -69,12 +68,12 @@ useHead({
 	.blogs {
 		display: grid;
 		grid-template-columns: repeat(1, minmax(0, 1fr));
-
+		gap: 1.5rem;
 		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		@media (min-width: 1024px) {
-			grid-template-columns: repeat(4, minmax(0, 1fr));
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
 }

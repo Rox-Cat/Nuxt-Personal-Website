@@ -3,6 +3,27 @@
 	margin: 0;
 	padding: 0;
 	color: inherit;
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		'JetBrains Mono',
+		HYZhengYuan,
+		'Fira Code',
+		Menlo,
+		'Ubuntu Mono',
+		Consolas,
+		Segoe UI Variable,
+		Segoe UI,
+		system-ui,
+		ui-sans-serif,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji' !important;
+}
+a {
+	text-decoration: none;
 }
 body {
 	background-color: @bg-color;
@@ -28,11 +49,10 @@ body {
 @text-color: var(--text--color);
 @bg-color: var(--bg--color);
 
-
 /* 屏幕尺寸 */
 @ipad: 768px;
 @iphone: 375px; // 暂时没用到
-@max-ipad: ~"(max-width: 768px)";
+@max-ipad: ~'(max-width: 768px)';
 
 /* 大屏模式 */
 @big-title-1-size: 3rem;
@@ -40,50 +60,3 @@ body {
 @big-title-3-size: 1.25rem;
 
 /* 小屏模式 */
-
-.light-title-1 {
-	color: @title-color;
-	font-size: 3rem;
-	font-weight: 600;
-}
-
-.light-title-2 {
-	color: @title-color;
-	font-size: 2rem;
-	font-weight: 600;
-}
-
-.light-title-3 {
-	color: @title-color;
-	font-size: 1.25rem;
-	font-weight: 600;
-}
-
-.dark-title-1 {
-	color: @title-color;
-	font-size: 3rem;
-}
-
-.dark-title-2 {
-	color: @title-color;
-	font-size: 2rem;
-	font-weight: 600;
-}
-
-.dark-title-3 {
-	color: @title-color;
-	font-size: 1.25rem;
-	font-weight: 600;
-}
-
-.light-text-1 {
-	color: #3f3f46;
-	font-size: 1rem;
-}
-
-.dark-text-1 {
-	color: @text-color;
-	font-size: 1rem;
-}
-
-

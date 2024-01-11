@@ -131,6 +131,56 @@ export const getBlogsCountByTagFetch = (tag: string) => {
 // 获取所有博客数目
 export const getBlogsCountFetch = () => {
 	return useHttpFetch('api/blogs/blogs-count', {
-		method: "GET"
+		method: 'GET',
+	})
+}
+
+// 获取最新的博客列表
+export const getNewestBlogsFetch = (page: number, pageSize: number) => {}
+
+// 获取一本小册的内容
+export const getBookFetch = (bookTitle: string) => {
+	return useHttpFetch('api/books/book', {
+		method: 'GET',
+		query: {
+			bookTitle,
+		},
+	})
+}
+
+// 获取book内容
+export const getBooksFetch = () => {
+	return useHttpFetch('api/books/books', {
+		method: 'GET',
+	})
+}
+
+// 获取所有章节
+export const getChaptersFetch = (bookID: string) => {
+	return useHttpFetch('api/books/chapters', {
+		method: 'GET',
+		query: {
+			bookID,
+		},
+	})
+}
+
+// 获取所有的文章
+export const getSectionsFetch = (chapterID: string) => {
+	return useHttpFetch('api/books/sections', {
+		method: 'GET',
+		query: {
+			chapterID,
+		},
+	})
+}
+
+// 通过文章ID获取文章内容
+export const getSectionFetch = (sectionID: string) => {
+	return useHttpFetch('api/books/section', {
+		method: 'GET',
+		query: {
+			sectionID,
+		},
 	})
 }
